@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blue Orchid Family Salon — Ballygunge, Kolkata</title>
+<meta name="description" content="Blue Orchid Family Salon, Ballygunge, Kolkata — 4.9★ rated family beauty parlour. Hair, skin, bridal & spa services.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#170D28;
+    --indigo-deep:#241542;
+    --indigo:#3A2266;
+    --violet:#6C3FA0;
+    --orchid:#C65FA0;
+    --orchid-light:#E9A8C9;
+    --gold:#C9A45C;
+    --cream:#FAF6FB;
+    --paper:#F1E9F3;
+    --ink-soft:#4A3D63;
+    --white:#FFFFFF;
+    --max:1180px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Manrope', sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  img{max-width:100%;display:block;}
+
+  a{text-decoration:none;color:inherit;}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
+
+  .eyebrow{
+    font-family:'DM Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--orchid);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:22px;height:1px;
+    background:var(--orchid);
+    display:inline-block;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    line-height:1.08;
+    letter-spacing:-0.01em;
+  }
+
+  .bn{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+  }
+
+  /* ===== NAV ===== */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:22px 0;
+    transition:background .4s ease, padding .4s ease, box-shadow .4s ease;
+  }
+  header.scrolled{
+    background:rgba(23,13,40,.92);
+    backdrop-filter:blur(14px);
+    padding:14px 0;
+    box-shadow:0 8px 30px rgba(23,13,40,.25);
+  }
+  nav{
+    display:flex;align-items:center;justify-content:space-between;
+    max-width:var(--max);margin:0 auto;padding:0 32px;
+  }
+  .logo{
+    display:flex;align-items:center;gap:12px;
+    color:var(--white);
+  }
+  .logo svg{width:34px;height:34px;flex-shrink:0;}
+  .logo-text{display:flex;flex-direction:column;line-height:1.15;}
+  .logo-text .en{font-family:'Fraunces',serif;font-size:18px;font-weight:600;letter-spacing:.01em;}
+  .logo-text .bn{font-size:11px;color:var(--orchid-light);letter-spacing:.02em;}
+
+  .nav-links{display:flex;align-items:center;gap:38px;}
+  .nav-links a{
+    color:rgba(255,255,255,.8);
+    font-size:14.5px;
+    font-weight:500;
+    position:relative;
+    padding:4px 0;
+    transition:color .25s;
+  }
+  .nav-links a::after{
+    content:'';position:absolute;bottom:0;left:0;width:0;height:1px;
+    background:var(--orchid-light);transition:width .3s ease;
+  }
+  .nav-links a:hover{color:var(--white);}
+  .nav-links a:hover::after{width:100%;}
+
+  .nav-cta{
+    display:flex;align-items:center;gap:8px;
+    background:var(--orchid);
+    color:var(--white);
+    padding:11px 22px;
+    border-radius:100px;
+    font-size:13.5px;
+    font-weight:600;
+    letter-spacing:.01em;
+    transition:background .25s, transform .25s;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--orchid-light);color:var(--indigo-deep);transform:translateY(-1px);}
+  .nav-toggle{display:none;}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;align-items:center;
+    background:
+      radial-gradient(ellipse 900px 600px at 15% 20%, rgba(198,95,160,.35), transparent 60%),
+      radial-gradient(ellipse 700px 700px at 90% 10%, rgba(108,63,160,.4), transparent 55%),
+      linear-gradient(160deg, var(--ink) 0%, var(--indigo-deep) 55%, var(--indigo) 100%);
+    overflow:hidden;
+    padding:140px 0 80px;
+  }
+  .hero::before{
+    content:'';
+    position:absolute;inset:0;
+    background-image:radial-gradient(rgba(255,255,255,.055) 1px, transparent 1px);
+    background-size:26px 26px;
+    opacity:.5;
+    pointer-events:none;
+  }
+  .hero-grid{
+    position:relative;z-index:2;
+    display:grid;grid-template-columns:1.05fr .95fr;
+    gap:40px;align-items:center;
+    max-width:var(--max);margin:0 auto;padding:0 32px;
+  }
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:10px;
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.14);
+    padding:9px 18px 9px 12px;
+    border-radius:100px;
+    margin-bottom:28px;
+    backdrop-filter:blur(6px);
+  }
+  .hero-badge .stars{color:var(--gold);font-size:13px;letter-spacing:2px;}
+  .hero-badge .rating-num{color:var(--white);font-weight:700;font-size:14px;}
+  .hero-badge .rating-sub{color:rgba(255,255,255,.6);font-size:12.5px;font-family:'DM Mono',monospace;}
+
+  .hero h1{
+    color:var(--white);
+    font-size:clamp(38px, 4.6vw, 62px);
+    margin-bottom:18px;
+  }
+  .hero h1 em{
+    font-style:italic;
+    background:linear-gradient(90deg, var(--orchid-light), var(--gold));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero .bn-line{
+    color:rgba(255,255,255,.65);
+    font-size:19px;
+    margin-bottom:26px;
+  }
+  .hero p.desc{
+    color:rgba(255,255,255,.72);
+    font-size:16.5px;
+    line-height:1.7;
+    max-width:480px;
+    margin-bottom:38px;
+  }
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--orchid);
+    color:var(--white);
+    padding:16px 30px;
+    border-radius:100px;
+    font-weight:700;
+    font-size:14.5px;
+    letter-spacing:.01em;
+    display:inline-flex;align-items:center;gap:10px;
+    transition:transform .25s, box-shadow .25s, background .25s;
+    box-shadow:0 14px 34px -12px rgba(198,95,160,.7);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 40px -12px rgba(198,95,160,.85);}
+  .btn-ghost{
+    border:1px solid rgba(255,255,255,.28);
+    color:var(--white);
+    padding:16px 28px;
+    border-radius:100px;
+    font-weight:600;
+    font-size:14.5px;
+    display:inline-flex;align-items:center;gap:10px;
+    transition:background .25s, border-color .25s;
+  }
+  .btn-ghost:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.5);}
+
+  /* orchid illustration */
+  .hero-art{
+    position:relative;
+    display:flex;align-items:center;justify-content:center;
+    height:520px;
+  }
+  .hero-art .glow{
+    position:absolute;width:380px;height:380px;border-radius:50%;
+    background:radial-gradient(circle, rgba(198,95,160,.35), transparent 70%);
+    filter:blur(20px);
+    animation:pulse 5s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{transform:scale(1);opacity:.8;}
+    50%{transform:scale(1.12);opacity:1;}
+  }
+  .hero-art svg{position:relative;z-index:2;width:100%;max-width:420px;height:auto;}
+  .petal{
+    stroke:var(--orchid-light);
+    stroke-width:1.4;
+    fill:url(#petalFill);
+    stroke-dasharray:600;
+    stroke-dashoffset:600;
+    animation:draw 1.8s ease forwards, sway 7s ease-in-out infinite;
+    animation-delay: var(--d, 0s), 1.8s;
+    transform-origin:center;
+  }
+  @keyframes draw{to{stroke-dashoffset:0;}}
+  @keyframes sway{
+    0%,100%{transform:rotate(0deg);}
+    50%{transform:rotate(1.2deg);}
+  }
+  .hero-scroll{
+    position:absolute;bottom:34px;left:50%;transform:translateX(-50%);
+    color:rgba(255,255,255,.5);font-family:'DM Mono',monospace;font-size:11px;
+    letter-spacing:.2em;text-transform:uppercase;
+    display:flex;flex-direction:column;align-items:center;gap:10px;
+    z-index:3;
+  }
+  .hero-scroll .line{width:1px;height:38px;background:linear-gradient(rgba(255,255,255,.6), transparent);animation:scrolldown 2s ease infinite;}
+  @keyframes scrolldown{0%{opacity:0;transform:translateY(-6px);}50%{opacity:1;}100%{opacity:0;transform:translateY(10px);}}
+
+  /* ===== reveal ===== */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease, transform .8s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ===== SECTION shared ===== */
+  section{padding:120px 0;}
+  .section-head{max-width:640px;margin-bottom:64px;}
+  .section-head h2{font-size:clamp(30px,3.4vw,44px);color:var(--ink);}
+  .section-head p{color:var(--ink-soft);font-size:16px;margin-top:14px;line-height:1.7;}
+
+  /* ===== ABOUT ===== */
+  .about{background:var(--cream);}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;}
+  .about-copy p{color:var(--ink-soft);font-size:16.5px;line-height:1.85;margin-bottom:20px;}
+  .stat-row{display:flex;gap:40px;margin-top:36px;flex-wrap:wrap;}
+  .stat{border-left:2px solid var(--orchid);padding-left:16px;}
+  .stat .num{font-family:'Fraunces',serif;font-size:32px;color:var(--indigo-deep);}
+  .stat .label{font-family:'DM Mono',monospace;font-size:11.5px;color:var(--ink-soft);letter-spacing:.05em;text-transform:uppercase;margin-top:4px;}
+
+  .about-visual{position:relative;}
+  .about-visual .frame{
+    border-radius:20px;overflow:hidden;
+    box-shadow:0 40px 70px -30px rgba(36,21,66,.35);
+    aspect-ratio:4/5;
+  }
+  .about-visual .frame img{width:100%;height:100%;object-fit:cover;}
+  .about-visual .float-card{
+    position:absolute;bottom:-28px;left:-36px;
+    background:var(--white);
+    padding:20px 26px;
+    border-radius:16px;
+    box-shadow:0 24px 50px -18px rgba(36,21,66,.35);
+    display:flex;align-items:center;gap:14px;
+  }
+  .float-card .stars{color:var(--gold);font-size:15px;letter-spacing:2px;}
+  .float-card .big{font-family:'Fraunces',serif;font-size:24px;color:var(--indigo-deep);}
+  .float-card .sub{font-size:12px;color:var(--ink-soft);}
+
+  /* ===== SERVICES ===== */
+  .services{background:var(--paper);}
+  .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .service-card{
+    background:var(--white);
+    padding:38px 30px;
+    border-radius:18px;
+    border:1px solid rgba(108,63,160,.08);
+    transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    position:relative;
+    overflow:hidden;
+  }
+  .service-card::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg, var(--orchid), var(--violet));
+    transform:scaleX(0);transform-origin:left;transition:transform .4s ease;
+  }
+  .service-card:hover{transform:translateY(-8px);box-shadow:0 30px 50px -24px rgba(36,21,66,.28);border-color:transparent;}
+  .service-card:hover::before{transform:scaleX(1);}
+  .service-card .icon{
+    width:52px;height:52px;border-radius:14px;
+    background:linear-gradient(135deg, rgba(198,95,160,.12), rgba(108,63,160,.12));
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:22px;
+    color:var(--orchid);
+  }
+  .service-card h3{font-size:20px;color:var(--ink);margin-bottom:4px;}
+  .service-card .bn{font-size:13.5px;color:var(--orchid);margin-bottom:12px;display:block;}
+  .service-card p{color:var(--ink-soft);font-size:14.5px;line-height:1.65;margin-bottom:18px;}
+  .service-card .price{
+    font-family:'DM Mono',monospace;font-size:12.5px;
+    color:var(--indigo-deep);
+    border-top:1px dashed rgba(108,63,160,.25);
+    padding-top:14px;
+    display:flex;justify-content:space-between;
+  }
+
+  /* ===== GALLERY ===== */
+  .gallery{background:var(--cream);}
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    grid-auto-rows:140px;
+    gap:14px;
+  }
+  .gallery-grid a{border-radius:14px;overflow:hidden;position:relative;}
+  .gallery-grid img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+  .gallery-grid a:hover img{transform:scale(1.08);}
+  .gallery-grid a::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(to top, rgba(23,13,40,.45), transparent 55%);
+    opacity:0;transition:opacity .4s ease;
+  }
+  .gallery-grid a:hover::after{opacity:1;}
+  .g1{grid-column:span 2;grid-row:span 2;}
+  .g2{grid-column:span 1;grid-row:span 1;}
+  .g3{grid-column:span 1;grid-row:span 2;}
+  .g4{grid-column:span 1;grid-row:span 1;}
+  .g5{grid-column:span 2;grid-row:span 1;}
+  .g6{grid-column:span 1;grid-row:span 1;}
+  .g7{grid-column:span 1;grid-row:span 1;}
+
+  /* ===== REVIEWS ===== */
+  .reviews{
+    background:linear-gradient(160deg, var(--ink) 0%, var(--indigo-deep) 60%, var(--indigo) 100%);
+    color:var(--white);
+    position:relative;
+    overflow:hidden;
+  }
+  .reviews::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(ellipse 800px 500px at 85% 20%, rgba(198,95,160,.25), transparent 60%);
+  }
+  .reviews-top{
+    position:relative;z-index:2;
+    display:flex;justify-content:space-between;align-items:flex-end;
+    margin-bottom:56px;flex-wrap:wrap;gap:30px;
+  }
+  .rating-block{display:flex;align-items:center;gap:24px;}
+  .rating-block .num{font-family:'Fraunces',serif;font-size:74px;color:var(--white);line-height:1;}
+  .rating-block .meta .stars{color:var(--gold);font-size:17px;letter-spacing:3px;margin-bottom:6px;}
+  .rating-block .meta p{color:rgba(255,255,255,.6);font-size:14px;}
+
+  .review-track{
+    position:relative;z-index:2;
+    display:flex;gap:22px;overflow-x:auto;
+    padding-bottom:10px;
+    scrollbar-width:none;
+  }
+  .review-track::-webkit-scrollbar{display:none;}
+  .review-card{
+    min-width:340px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:18px;
+    padding:30px;
+    backdrop-filter:blur(6px);
+    flex-shrink:0;
+  }
+  .review-card .stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:16px;}
+  .review-card p{font-size:15.5px;line-height:1.75;color:rgba(255,255,255,.88);margin-bottom:22px;font-style:italic;}
+  .review-card .who{display:flex;align-items:center;gap:12px;}
+  .review-card .avatar{
+    width:38px;height:38px;border-radius:50%;
+    background:linear-gradient(135deg, var(--orchid), var(--violet));
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-size:14px;color:var(--white);
+  }
+  .review-card .who .name{font-size:14px;font-weight:600;}
+  .review-card .who .tag{font-size:12px;color:rgba(255,255,255,.5);}
+
+  /* ===== LOCATION ===== */
+  .location{background:var(--paper);}
+  .loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:stretch;}
+  .loc-map{border-radius:20px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(36,21,66,.3);min-height:420px;}
+  .loc-map iframe{width:100%;height:100%;min-height:420px;border:0;filter:saturate(.85);}
+  .loc-info{background:var(--white);border-radius:20px;padding:44px;box-shadow:0 30px 60px -30px rgba(36,21,66,.15);}
+  .loc-info h3{font-size:24px;margin-bottom:6px;color:var(--ink);}
+  .loc-info .addr{color:var(--ink-soft);font-size:15px;line-height:1.7;margin-bottom:28px;}
+  .hours-table{width:100%;border-collapse:collapse;margin-bottom:28px;}
+  .hours-table tr{border-bottom:1px solid rgba(108,63,160,.1);}
+  .hours-table tr:last-child{border-bottom:none;}
+  .hours-table td{padding:11px 0;font-size:14.5px;color:var(--ink-soft);}
+  .hours-table td:first-child{font-weight:600;color:var(--ink);}
+  .hours-table td:last-child{text-align:right;font-family:'DM Mono',monospace;font-size:13px;}
+  .hours-table tr.today td{color:var(--orchid);font-weight:700;}
+  .loc-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn-solid-dark{
+    background:var(--indigo-deep);color:var(--white);
+    padding:14px 24px;border-radius:100px;font-weight:600;font-size:14px;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:background .25s;
+  }
+  .btn-solid-dark:hover{background:var(--orchid);}
+  .btn-outline{
+    border:1.5px solid var(--indigo-deep);color:var(--indigo-deep);
+    padding:14px 24px;border-radius:100px;font-weight:600;font-size:14px;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:background .25s,color .25s;
+  }
+  .btn-outline:hover{background:var(--indigo-deep);color:var(--white);}
+
+  /* ===== CTA BANNER ===== */
+  .cta-band{
+    background:linear-gradient(120deg, var(--orchid), var(--violet));
+    padding:80px 0;text-align:center;color:var(--white);
+  }
+  .cta-band h2{font-size:clamp(28px,3.4vw,42px);margin-bottom:16px;}
+  .cta-band p{opacity:.9;margin-bottom:34px;font-size:16px;}
+  .cta-band .btn-primary{background:var(--white);color:var(--indigo-deep);box-shadow:0 14px 34px -12px rgba(23,13,40,.4);}
+  .cta-band .btn-primary:hover{background:var(--ink);color:var(--white);}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--ink);color:rgba(255,255,255,.65);padding:70px 0 30px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:50px;margin-bottom:60px;}
+  .footer-logo{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+  .footer-logo svg{width:30px;height:30px;}
+  .footer-logo .en{color:var(--white);font-family:'Fraunces',serif;font-size:18px;}
+  footer p.desc{font-size:14.5px;line-height:1.7;max-width:320px;}
+  footer h4{color:var(--white);font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-family:'DM Mono',monospace;margin-bottom:20px;}
+  footer ul{list-style:none;}
+  footer ul li{margin-bottom:12px;font-size:14.5px;}
+  footer ul li a:hover{color:var(--orchid-light);}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,.1);
+    padding-top:28px;
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:13px;color:rgba(255,255,255,.4);flex-wrap:wrap;gap:14px;
+  }
+
+  /* ===== whatsapp float ===== */
+  .float-wa{
+    position:fixed;bottom:28px;right:28px;z-index:90;
+    width:58px;height:58px;border-radius:50%;
+    background:#25D366;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 14px 30px -8px rgba(37,211,102,.6);
+    transition:transform .3s;
+  }
+  .float-wa:hover{transform:scale(1.08);}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important;}
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 980px){
+    .nav-links{display:none;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-art{height:340px;order:-1;}
+    .about-grid{grid-template-columns:1fr;}
+    .service-grid{grid-template-columns:repeat(2,1fr);}
+    .gallery-grid{grid-template-columns:repeat(3,1fr);}
+    .g1{grid-column:span 3;grid-row:span 1;aspect-ratio:16/9;height:auto;}
+    .loc-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width: 620px){
+    .wrap{padding:0 20px;}
+    nav{padding:0 20px;}
+    .service-grid{grid-template-columns:1fr;}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);}
+    .g1{grid-column:span 2;}
+    .reviews-top{flex-direction:column;align-items:flex-start;}
+    .footer-grid{grid-template-columns:1fr;}
+    .loc-info{padding:28px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header id="header">
+  <nav>
+    <a href="#home" class="logo">
+      <svg viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="19" stroke="#E9A8C9" stroke-width="1"/>
+        <path d="M20 8C20 8 26 13 26 19C26 23 23.5 26 20 26C16.5 26 14 23 14 19C14 13 20 8 20 8Z" fill="#C65FA0" opacity="0.85"/>
+        <circle cx="20" cy="20" r="3" fill="#C9A45C"/>
+      </svg>
+      <span class="logo-text">
+        <span class="en">Blue Orchid</span>
+        <span class="bn">ব্লু অর্কিড ফ্যামিলি স্যালন</span>
+      </span>
+    </a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Visit</a>
+    </div>
+    <a href="tel:+918240856662" class="nav-cta">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      082408 56662
+    </a>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="home">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-badge">
+        <span class="stars">★★★★★</span>
+        <span class="rating-num">4.9</span>
+        <span class="rating-sub">/ 672 Google reviews</span>
+      </div>
+      <h1>Where beauty blooms,<br><em>family</em> by family.</h1>
+      <p class="bn-line bn">যেখানে সৌন্দর্য ফোটে, পরিবারের ভালোবাসায়</p>
+      <p class="desc">A neighbourhood salon in Ballygunge trusted for gentle, unhurried care — hair, skin, bridal and spa services for every member of the family, from a team our guests keep coming back to.</p>
+      <div class="hero-ctas">
+        <a href="tel:+918240856662" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call to book
+        </a>
+        <a href="#visit" class="btn-ghost">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Get directions
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-art">
+      <div class="glow"></div>
+      <svg viewBox="0 0 300 340" fill="none">
+        <defs>
+          <linearGradient id="petalFill" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#6C3FA0" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#C65FA0" stop-opacity="0.55"/>
+          </linearGradient>
+        </defs>
+        <path class="petal" style="--d:0.1s" d="M150 60C150 60 190 95 190 140C190 172 172 195 150 195C128 195 110 172 110 140C110 95 150 60 150 60Z"/>
+        <path class="petal" style="--d:0.3s" d="M150 60C150 60 90 90 82 138C77 168 92 195 118 200C144 205 165 185 172 155" transform="rotate(-40 150 150)"/>
+        <path class="petal" style="--d:0.5s" d="M150 60C150 60 90 90 82 138C77 168 92 195 118 200C144 205 165 185 172 155" transform="rotate(40 150 150) scale(-1,1) translate(-300,0)"/>
+        <path class="petal" style="--d:0.7s" d="M150 195C150 195 120 230 128 260C133 280 152 290 168 282C184 274 190 254 178 236" transform="rotate(-15 150 150)"/>
+        <path class="petal" style="--d:0.9s" d="M150 195C150 195 120 230 128 260C133 280 152 290 168 282C184 274 190 254 178 236" transform="rotate(15 150 150) scale(-1,1) translate(-300,0)"/>
+        <circle cx="150" cy="152" r="10" fill="#C9A45C" class="petal" style="--d:1.1s"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="hero-scroll"><span>Scroll</span><span class="line"></span></div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-copy reveal">
+      <span class="eyebrow">The Salon</span>
+      <h2 style="margin-bottom:24px;">A family salon, run the way families like it — <em style="font-style:italic;color:var(--orchid);">unrushed and personal.</em></h2>
+      <p>Tucked into a quiet Ekdalia Road address in Ballygunge, Blue Orchid has spent years building something rarer than a trend-chasing studio: a room where three generations of the same family feel equally at home.</p>
+      <p>Every service is paced around the guest, not the clock — which is, more than anything, why word has travelled so far by word of mouth alone.</p>
+      <div class="stat-row">
+        <div class="stat"><div class="num">4.9★</div><div class="label">Average rating</div></div>
+        <div class="stat"><div class="num">672</div><div class="label">Google reviews</div></div>
+        <div class="stat"><div class="num">6+</div><div class="label">Service categories</div></div>
+      </div>
+    </div>
+    <div class="about-visual reveal">
+      <div class="frame">
+        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=900&auto=format&fit=crop" alt="Salon interior, styling chairs">
+      </div>
+      <div class="float-card">
+        <div class="stars">★★★★★</div>
+        <div>
+          <div class="big">4.9</div>
+          <div class="sub">672 verified reviews</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What We Do</span>
+      <h2>Services for every chair in the salon.</h2>
+      <p>From a quick trim to a full bridal morning — six categories, each handled by a specialist who does only that, all day.</p>
+    </div>
+    <div class="service-grid">
+
+      <div class="service-card reveal">
+        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3v18M6 3c0 4 4 4 4 8s-4 4-4 8M14 3c4 0 6 3 6 6M14 8c4 0 6 3 6 6M14 13c2 0 4 2 4 4"/></svg></div>
+        <h3>Haircut & Styling</h3>
+        <span class="bn">চুল কাটা ও স্টাইলিং</span>
+        <p>Precision cuts, blow-dry and styling for men, women and children, tailored to face and lifestyle.</p>
+        <div class="price"><span>Starting from</span><span>₹250</span></div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="5"/><path d="M6 21v-2a6 6 0 0 1 12 0v2"/></svg></div>
+        <h3>Bridal & Party Makeup</h3>
+        <span class="bn">বিয়ে ও পার্টি মেকআপ</span>
+        <p>Trial-first bridal packages and party-ready looks, with hair styling and draping included.</p>
+        <div class="price"><span>Starting from</span><span>₹3,500</span></div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Facial & Skin Care</h3>
+        <span class="bn">ফেসিয়াল ও ত্বকচর্চা</span>
+        <p>Cleanups, brightening and de-tan facials suited to Kolkata's weather and your skin type.</p>
+        <div class="price"><span>Starting from</span><span>₹600</span></div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h16M4 6h16M4 18h16"/></svg></div>
+        <h3>Threading & Waxing</h3>
+        <span class="bn">থ্রেডিং ও ওয়াক্সিং</span>
+        <p>Quick, precise brow and face threading, plus full and half-body waxing.</p>
+        <div class="price"><span>Starting from</span><span>₹50</span></div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2C12 2 5 9 5 15a7 7 0 0 0 14 0c0-6-7-13-7-13z"/></svg></div>
+        <h3>Manicure & Pedicure</h3>
+        <span class="bn">ম্যানিকিওর ও পেডিকিওর</span>
+        <p>Classic and spa manicure-pedicure with nail care, scrub and massage.</p>
+        <div class="price"><span>Starting from</span><span>₹400</span></div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12c2-4 6-6 9-6s7 2 9 6c-2 4-6 6-9 6s-7-2-9-6z"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <h3>Hair Spa & Treatment</h3>
+        <span class="bn">হেয়ার স্পা ও ট্রিটমেন্ট</span>
+        <p>Deep-conditioning spa, keratin and anti-hairfall treatments for lasting shine and strength.</p>
+        <div class="price"><span>Starting from</span><span>₹800</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Inside The Salon</span>
+      <h2>A look around Blue Orchid.</h2>
+    </div>
+    <div class="gallery-grid reveal">
+      <a class="g1" href="#"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=1200&auto=format&fit=crop" alt="Salon styling area"></a>
+      <a class="g2" href="#"><img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?q=80&w=600&auto=format&fit=crop" alt="Hair styling tools"></a>
+      <a class="g3" href="#"><img src="https://images.unsplash.com/photo-1470259078422-826894b933aa?q=80&w=700&auto=format&fit=crop" alt="Facial treatment"></a>
+      <a class="g4" href="#"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?q=80&w=600&auto=format&fit=crop" alt="Manicure station"></a>
+      <a class="g5" href="#"><img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?q=80&w=1000&auto=format&fit=crop" alt="Salon reception"></a>
+      <a class="g6" href="#"><img src="https://images.unsplash.com/photo-1595475207225-428b62bda831?q=80&w=600&auto=format&fit=crop" alt="Hair color work"></a>
+      <a class="g7" href="#"><img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=600&auto=format&fit=crop" alt="Bridal makeup"></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="reviews-top reveal">
+      <div>
+        <span class="eyebrow" style="color:var(--orchid-light);">Guest Reviews</span>
+        <h2 style="color:var(--white);font-size:clamp(28px,3.2vw,40px);">What Ballygunge is saying.</h2>
+      </div>
+      <div class="rating-block">
+        <div class="num">4.9</div>
+        <div class="meta">
+          <div class="stars">★★★★★</div>
+          <p>from 672 Google reviews</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-track reveal">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Very pleasant staff and fantastic service are the hallmark of this place."</p>
+        <div class="who">
+          <div class="avatar">R</div>
+          <div><div class="name">Rina D.</div><div class="tag">Google Review</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Had a lovely experience at the salon with quality service in reasonable price."</p>
+        <div class="who">
+          <div class="avatar">S</div>
+          <div><div class="name">Sanjukta P.</div><div class="tag">Google Review</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Very cool environment — staff was so lovely."</p>
+        <div class="who">
+          <div class="avatar">A</div>
+          <div><div class="name">Anwesha M.</div><div class="tag">Google Review</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Booked a full bridal trial here — they took their time and it showed on the day."</p>
+        <div class="who">
+          <div class="avatar">P</div>
+          <div><div class="name">Priyanka S.</div><div class="tag">Google Review</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LOCATION ===== -->
+<section class="location" id="visit">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Visit Us</span>
+      <h2>Find us on Ekdalia Road.</h2>
+    </div>
+    <div class="loc-grid reveal">
+      <div class="loc-map">
+        <iframe src="https://www.google.com/maps?q=57+Ekdalia+Rd,+Ekdalia,+Ballygunge,+Kolkata,+West+Bengal+700019&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="loc-info">
+        <h3>Blue Orchid Family Salon</h3>
+        <p class="addr">57, 2, Ekdalia Rd, Ekdalia, Ballygunge,<br>Kolkata, West Bengal 700019<br><span style="font-family:'DM Mono',monospace;font-size:12.5px;">Plus Code: G9C9+H3 Kolkata</span></p>
+
+        <table class="hours-table">
+          <tr class="today"><td>Sunday</td><td>10:30 AM – 8:30 PM</td></tr>
+          <tr><td>Monday</td><td>10:30 AM – 8:30 PM</td></tr>
+          <tr><td>Tuesday</td><td>10:30 AM – 8:30 PM</td></tr>
+          <tr><td>Wednesday</td><td>10:30 AM – 8:30 PM</td></tr>
+          <tr><td>Thursday</td><td>10:30 AM – 8:30 PM</td></tr>
+          <tr><td>Friday</td><td>10:30 AM – 8:30 PM</td></tr>
+          <tr><td>Saturday</td><td>10:30 AM – 8:30 PM</td></tr>
+        </table>
+
+        <div class="loc-ctas">
+          <a href="tel:+918240856662" class="btn-solid-dark">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call 082408 56662
+          </a>
+          <a href="https://www.google.com/maps?q=57+Ekdalia+Rd,+Ekdalia,+Ballygunge,+Kolkata,+West+Bengal+700019" target="_blank" class="btn-outline">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Directions
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BAND ===== -->
+<div class="cta-band">
+  <div class="wrap">
+    <h2>Your chair is ready.</h2>
+    <p>Walk in, or call ahead to skip the wait.</p>
+    <a href="tel:+918240856662" class="btn-primary">Call to book now</a>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <svg viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="19" stroke="#E9A8C9" stroke-width="1"/>
+            <path d="M20 8C20 8 26 13 26 19C26 23 23.5 26 20 26C16.5 26 14 23 14 19C14 13 20 8 20 8Z" fill="#C65FA0" opacity="0.85"/>
+            <circle cx="20" cy="20" r="3" fill="#C9A45C"/>
+          </svg>
+          <span class="en">Blue Orchid</span>
+        </div>
+        <p class="desc">A family beauty salon in Ballygunge, Kolkata — trusted by 672 reviewers for gentle service and fair prices.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+918240856662">082408 56662</a></li>
+          <li><a href="#visit">57 Ekdalia Rd, Ballygunge</a></li>
+          <li><a href="#visit">Kolkata 700019</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Blue Orchid Family Salon. All rights reserved.</span>
+      <span>Ballygunge, Kolkata</span>
+    </div>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/918240856662" target="_blank" aria-label="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.87.5 3.62 1.44 5.15L2 22l5.06-1.53a9.87 9.87 0 0 0 4.98 1.34h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2zm5.79 14.02c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.12.09-1.8-.11-.42-.13-.96-.31-1.65-.61-2.91-1.26-4.81-4.19-4.96-4.39-.15-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.27-.29.58-.36.77-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.83 2 .9 2.15.07.15.11.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.29.72 1.19 1.55 1.93 1.06.95 1.96 1.24 2.24 1.38.28.14.45.12.61-.07.17-.19.7-.82.89-1.1.19-.28.38-.24.63-.14.26.09 1.63.77 1.91.91.28.14.47.21.53.33.07.12.07.68-.17 1.36z"/></svg>
+</a>
+
+<script>
+  // Nav scroll state
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
