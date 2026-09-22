@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import gsap from 'gsap';
-import { ArrowUpRight, Calendar, Menu, Scissors, Rotate3D } from 'lucide-react';
+import { ArrowUpRight, Calendar, Menu, Scissors } from 'lucide-react';
 import ThroneScene from './ThroneScene';
 
 export default function App() {
