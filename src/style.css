@@ -53,6 +53,43 @@ button { color: inherit; }
 }
 @keyframes drift { to { transform: translate3d(22px, -16px, 0); } }
 
+.star-particle {
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: rgba(255,255,255,.82);
+  box-shadow: 0 0 7px rgba(255,255,255,.35);
+  animation:
+    starTravel var(--duration) linear var(--delay) infinite,
+    starTwinkle var(--twinkle) ease-in-out var(--twinkle-delay) infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes starTravel {
+  0% {
+    transform: translate3d(0, 0, 0) scale(.65);
+  }
+  50% {
+    transform: translate3d(var(--drift-x), var(--drift-y), 0) scale(1);
+  }
+  100% {
+    transform: translate3d(calc(var(--drift-x) * -1), var(--distance), 0) scale(.7);
+  }
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: .18; }
+  45% { opacity: .95; }
+  70% { opacity: .38; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stars, .star-particle {
+    animation: none !important;
+  }
+}
+
 .grain {
   position: fixed;
   inset: -50%;
