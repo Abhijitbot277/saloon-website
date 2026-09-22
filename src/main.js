@@ -187,7 +187,7 @@ cursor.appendChild(cursorOrbit);
 
 window.addEventListener("pointermove", (event) => {
   cursor.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0)`;
-});
+}, { passive: true });
 
 document.querySelectorAll("a, button, input, textarea").forEach((element) => {
   element.addEventListener("mouseenter", () => cursor.classList.add("active"));
