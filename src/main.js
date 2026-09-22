@@ -181,9 +181,14 @@ for (let i = 0; i < starCount; i++) {
 starField.appendChild(starFragment);
 
 const cursor = document.querySelector(".cursor");
-const cursorOrbit = document.createElement("span");
-cursorOrbit.className = "cursor-orbit";
-cursor.appendChild(cursorOrbit);
+cursor.innerHTML = `
+  <svg class="cursor-vector" viewBox="0 0 100 100" aria-hidden="true">
+    <circle class="cursor-vector-ring" cx="50" cy="50" r="39"/>
+    <circle class="cursor-vector-core" cx="50" cy="50" r="9"/>
+    <path class="cursor-vector-orbit" d="M50 8a42 42 0 0 1 36 20"/>
+    <circle class="cursor-vector-node" cx="86" cy="30" r="7"/>
+  </svg>
+`;
 
 window.addEventListener("pointermove", (event) => {
   cursor.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0)`;
