@@ -252,47 +252,47 @@ html, body, a, button, input, textarea, [role="button"] {
   top: -39px;
   width: 78px;
   height: 78px;
-  border: 1px solid rgba(255,255,255,.38);
-  border-radius: 50%;
   pointer-events: none;
   will-change: transform;
   transition: transform .08s linear;
-  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,.16), rgba(255,255,255,.025) 38%, transparent 67%);
-  box-shadow: 0 0 26px rgba(255,255,255,.08), inset 0 0 18px rgba(255,255,255,.035);
 }
-.cursor::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 17px;
-  height: 17px;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 14px rgba(255,255,255,.55);
+.cursor-vector {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 0 7px rgba(255,255,255,.12));
 }
-.cursor-orbit {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  left: 100%;
-  top: 82%;
-  transform: translate(-50%, -50%);
-  border: 1px solid rgba(255,255,255,.7);
-  border-radius: 50%;
-  background: rgba(5,5,5,.25);
-  box-shadow: 0 0 7px rgba(255,255,255,.12);
-  animation: none;
+.cursor-vector-ring {
+  fill: rgba(255,255,255,.018);
+  stroke: rgba(255,255,255,.46);
+  stroke-width: 1;
 }
-@keyframes cursorOrbit {
-  from { transform: translate(-50%, -50%) rotate(0deg) translateX(0); }
-  to { transform: translate(-50%, -50%) rotate(360deg) translateX(0); }
+.cursor-vector-core {
+  fill: #fff;
+  stroke: rgba(255,255,255,.7);
+  stroke-width: 1;
+  filter: drop-shadow(0 0 7px rgba(255,255,255,.55));
 }
-.cursor.active {
-  width: 78px;
-  height: 78px;
+.cursor-vector-orbit {
+  fill: none;
+  stroke: rgba(255,255,255,.24);
+  stroke-width: .8;
+  stroke-linecap: round;
+  stroke-dasharray: 2 5;
 }
+.cursor-vector-node {
+  fill: #050505;
+  stroke: rgba(255,255,255,.68);
+  stroke-width: 1.2;
+}
+.cursor.active .cursor-vector-ring {
+  stroke: rgba(255,255,255,.7);
+}
+.cursor.active .cursor-vector-core {
+  transform: scale(1.08);
+  transform-origin: 50% 50%;
+}
+
 
 .section {
   position: relative;
