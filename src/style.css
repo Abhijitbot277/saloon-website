@@ -248,10 +248,10 @@ html, body, a, button, input, textarea, [role="button"] {
 .cursor {
   position: fixed;
   z-index: 100;
-  left: -39px;
-  top: -39px;
-  width: 78px;
-  height: 78px;
+  left: -19.5px;
+  top: -19.5px;
+  width: 39px;
+  height: 39px;
   pointer-events: none;
   will-change: transform;
   transition: transform .08s linear;
