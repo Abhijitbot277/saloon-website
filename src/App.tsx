@@ -70,7 +70,7 @@ export default function App() {
       <main id="top">
         <section className="hero">
           <div className="hero-stars" aria-hidden="true">
-            {Array.from({ length: 34 }).map((_, index) => <i key={index} style={{ '--i': index } as React.CSSProperties} />)}
+            {Array.from({ length: 34 }).map((_, index) => <i key={index} style={{ left: `${(index * 29) % 100}%`, top: `${(index * 47) % 100}%`, animationDelay: `${index * -0.17}s` }} />)}
           </div>
           <div className="hero-copy">
             <div className="hero-kicker">ENGINEERING × CODE × AI × DESIGN</div>
