@@ -1,4 +1,4 @@
-import { FormEvent } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 
 const projects = [
   {
@@ -29,14 +29,20 @@ const skillGroups = [
 ];
 
 export default function App() {
+  const [cursor, setCursor] = useState({ x: -100, y: -100 });
+
+  useEffect(() => {
+    const move = (event: MouseEvent) => setCursor({ x: event.clientX, y: event.clientY });
+    window.addEventListener('mousemove', move);
+    return () => window.removeEventListener('mousemove', move);
+  }, []);
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const form = event.currentTarget;
-    const data = new FormData(form);
+    const data = new FormData(event.currentTarget);
     const name = String(data.get('name') || '').trim();
     const email = String(data.get('email') || '').trim();
     const message = String(data.get('message') || '').trim();
-
     const subject = encodeURIComponent(`Portfolio enquiry from ${name || 'a visitor'}`);
     const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
     window.location.href = `mailto:abhijitsingha.dev@gmail.com?subject=${subject}&body=${body}`;
@@ -44,8 +50,15 @@ export default function App() {
 
   return (
     <div className="portfolio-shell">
+      <div className="cursor-orbit" style={{ left: cursor.x, top: cursor.y }} aria-hidden="true">
+        <span />
+      </div>
+
       <header>
-        <a className="logo" href="#top">Abhijit Singha</a>
+        <a className="logo" href="#top">
+          <span>Abhijit Singha</span>
+          <small>ENGINEERING × CODE × AI × DESIGN</small>
+        </a>
         <nav aria-label="Primary navigation">
           <a href="#work">WORK</a>
           <a href="#about">ABOUT</a>
@@ -56,22 +69,26 @@ export default function App() {
 
       <main id="top">
         <section className="hero">
-          <div className="subtitle">ENGINEERING × CODE × AI × DESIGN</div>
-          <h1>HI, I'M ABHIJIT.</h1>
-          <p>I build digital experiences, experiment with AI, and turn abstract ideas into functional, real-world products.</p>
-          <div className="cta-buttons">
-            <a href="#work" className="btn-primary">EXPLORE MY WORK</a>
-            <a href="#contact" className="btn-secondary">LET'S CONNECT</a>
+          <div className="hero-stars" aria-hidden="true">
+            {Array.from({ length: 34 }).map((_, index) => <i key={index} style={{ '--i': index } as React.CSSProperties} />)}
           </div>
+          <div className="hero-copy">
+            <div className="hero-kicker">ENGINEERING × CODE × AI × DESIGN</div>
+            <div className="hero-name-outline" aria-hidden="true">ABHIJIT.</div>
+            <h1>HI, I'M<br />ABHIJIT.</h1>
+            <p>I build digital experiences, experiment with AI, and turn abstract ideas into functional, real-world products.</p>
+            <div className="cta-buttons">
+              <a href="#work" className="btn-primary">EXPLORE MY WORK</a>
+              <a href="#contact" className="btn-secondary">LET'S CONNECT</a>
+            </div>
+          </div>
+          <div className="scroll-cue"><span />SCROLL</div>
         </section>
 
         <section id="about">
           <div className="subtitle">MORE THAN A STUDENT.</div>
           <h2>BUILD. BREAK. LEARN. REPEAT.</h2>
-          <p className="section-copy">
-            I am an EEE engineering student bridging the gap between hardware logic and software architecture.
-            My focus lies at the intersection of web development, artificial intelligence, and creative technology.
-          </p>
+          <p className="section-copy">I am an EEE engineering student bridging the gap between hardware logic and software architecture. My focus lies at the intersection of web development, artificial intelligence, and creative technology.</p>
           <div className="meta-grid">
             <div className="meta-item"><h4>LOCATION</h4><p>Kolkata, India</p></div>
             <div className="meta-item"><h4>EDUCATION</h4><p>B.Tech — Electrical &amp; Electronics Engineering</p></div>
@@ -106,18 +123,9 @@ export default function App() {
         <section>
           <div className="subtitle">THE JOURNEY</div>
           <div className="timeline">
-            <div className="timeline-item">
-              <div className="year">2026</div>
-              <div><h4>CONVERGENCE</h4><p>Scaling the intersection of Engineering, AI, and Web Development into full-stack product architecture.</p></div>
-            </div>
-            <div className="timeline-item">
-              <div className="year">2025–2026</div>
-              <div><h4>EXPERIMENTATION</h4><p>Deep technical learning, shipping projects, building the AI lab, and establishing a creative developer identity.</p></div>
-            </div>
-            <div className="timeline-item">
-              <div className="year">Earlier</div>
-              <div><h4>FOUNDATION</h4><p>Academic foundations, competitive exam preparation (JEE Main), and discovering the logic of code.</p></div>
-            </div>
+            <div className="timeline-item"><div className="year">2026</div><div><h4>CONVERGENCE</h4><p>Scaling the intersection of Engineering, AI, and Web Development into full-stack product architecture.</p></div></div>
+            <div className="timeline-item"><div className="year">2025–2026</div><div><h4>EXPERIMENTATION</h4><p>Deep technical learning, shipping projects, building the AI lab, and establishing a creative developer identity.</p></div></div>
+            <div className="timeline-item"><div className="year">Earlier</div><div><h4>FOUNDATION</h4><p>Academic foundations, competitive exam preparation (JEE Main), and discovering the logic of code.</p></div></div>
           </div>
         </section>
 
@@ -133,9 +141,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer>
-        <p>© 2026 ABHIJIT SINGHA. ENGINEERED WITH INTENT.</p>
-      </footer>
+      <footer><p>© 2026 ABHIJIT SINGHA. ENGINEERED WITH INTENT.</p></footer>
     </div>
   );
 }
