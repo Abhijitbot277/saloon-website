@@ -1,60 +1,141 @@
-import { useEffect } from 'react';
-import gsap from 'gsap';
-import { ArrowUpRight, Calendar, Menu, Scissors } from 'lucide-react';
-import ThroneScene from './ThroneScene';
+import { FormEvent } from 'react';
+
+const projects = [
+  {
+    num: '01 // E-COMMERCE',
+    title: 'APEXSTORE',
+    description: 'A modern gaming marketplace experience featuring dynamic theming and fluid product interactions.',
+    tags: ['React', 'UI/UX'],
+  },
+  {
+    num: '02 // IoT & SAFETY',
+    title: 'AIR SENTINAL',
+    description: 'Smart industrial safety concept combining H₂S detection with AI-assisted exposure interpretation.',
+    tags: ['Hardware Integration', 'Dashboard'],
+  },
+  {
+    num: '03 // CREATIVE WEB',
+    title: 'NOIR KINGDOM',
+    description: 'A cinematic premium salon website experiment focused on 3D elements and luxury storytelling.',
+    tags: ['Three.js', 'Animation'],
+  },
+];
+
+const skillGroups = [
+  ['Development', ['React', 'TypeScript', 'JavaScript', 'Python', 'HTML/CSS']],
+  ['AI & Automation', ['AI Agents', 'Prompt Eng', 'Automation', 'LLM Integration']],
+  ['Design', ['UI/UX', 'Visual Design', 'Motion Concepts', 'Figma']],
+  ['Tools', ['VS Code', 'GitHub', 'Three.js', 'GSAP']],
+];
 
 export default function App() {
-  useEffect(() => {
-    gsap.fromTo('.reveal',{y:42,opacity:0},{y:0,opacity:1,duration:1,stagger:.1,ease:'power4.out',delay:.15});
-    gsap.fromTo('.throne-3d-shell',{scale:.94,opacity:0},{scale:1,opacity:1,duration:1.4,ease:'power3.out'});
-  },[]);
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    const name = String(data.get('name') || '').trim();
+    const email = String(data.get('email') || '').trim();
+    const message = String(data.get('message') || '').trim();
 
-  return <main>
-    <div className="grain"/>
-    <nav>
-      <div className="brand">NOIR<span> KINGDOM</span></div>
-      <div className="navlinks"><a href="#story">Story</a><a href="#services">Services</a><a href="#contact">Contact</a></div>
-      <button className="menu" aria-label="Open menu"><Menu size={20}/></button>
-    </nav>
+    const subject = encodeURIComponent(`Portfolio enquiry from ${name || 'a visitor'}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+    window.location.href = `mailto:abhijitsingha.dev@gmail.com?subject=${subject}&body=${body}`;
+  };
 
-    <section className="hero">
-      <div className="hero-copy">
-        <p className="eyebrow reveal"><Scissors size={14}/> THE DARK BEAUTY HOUSE</p>
-        <h1 className="blood reveal">RULE<br/><span>YOUR</span><br/>LOOK.</h1>
-        <p className="lead reveal">A cinematic salon experience for people who don't follow the room. They own it.</p>
-        <div className="actions reveal">
-          <a className="primary" href="#contact">Claim your appointment <ArrowUpRight size={17}/></a>
-          <a className="secondary" href="#services">Enter the kingdom</a>
-        </div>
-      </div>
+  return (
+    <div className="portfolio-shell">
+      <header>
+        <a className="logo" href="#top">Abhijit Singha</a>
+        <nav aria-label="Primary navigation">
+          <a href="#work">WORK</a>
+          <a href="#about">ABOUT</a>
+          <a href="#skills">SKILLS</a>
+          <a href="#contact">CONTACT</a>
+        </nav>
+      </header>
 
-      <div className="hero-art">
-        <ThroneScene />
-      </div>
-    </section>
+      <main id="top">
+        <section className="hero">
+          <div className="subtitle">ENGINEERING × CODE × AI × DESIGN</div>
+          <h1>HI, I'M ABHIJIT.</h1>
+          <p>I build digital experiences, experiment with AI, and turn abstract ideas into functional, real-world products.</p>
+          <div className="cta-buttons">
+            <a href="#work" className="btn-primary">EXPLORE MY WORK</a>
+            <a href="#contact" className="btn-secondary">LET'S CONNECT</a>
+          </div>
+        </section>
 
-    <section id="story" className="story">
-      <div><p className="eyebrow">THE NOIR CODE</p><h2 className="blood small-blood">CUT.<br/>COLOUR.<br/>COMMAND.</h2></div>
-      <p>Black is the uniform. Red is the signal. Every detail is built around sharp silhouettes, controlled movement and a little danger.</p>
-    </section>
+        <section id="about">
+          <div className="subtitle">MORE THAN A STUDENT.</div>
+          <h2>BUILD. BREAK. LEARN. REPEAT.</h2>
+          <p className="section-copy">
+            I am an EEE engineering student bridging the gap between hardware logic and software architecture.
+            My focus lies at the intersection of web development, artificial intelligence, and creative technology.
+          </p>
+          <div className="meta-grid">
+            <div className="meta-item"><h4>LOCATION</h4><p>Kolkata, India</p></div>
+            <div className="meta-item"><h4>EDUCATION</h4><p>B.Tech — Electrical &amp; Electronics Engineering</p></div>
+            <div className="meta-item"><h4>FOCUS</h4><p>AI • Web Development • Creative Technology</p></div>
+          </div>
+        </section>
 
-    <section id="services" className="services">
-      <div className="section-head"><p className="eyebrow">THE ROYAL MENU</p><span>01 — 04</span></div>
-      <div className="service-grid">
-        {[
-          ['01','THE CROWN CUT','Precision cut, sculpt & finish'],
-          ['02','BLACKOUT COLOUR','Deep colour with high-gloss finish'],
-          ['03','BLOOD RED GLOSS','Signature red transformation'],
-          ['04','THE ROYAL RITUAL','Complete private grooming session']
-        ].map(([n,t,d])=><article key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p><ArrowUpRight/></article>)}
-      </div>
-    </section>
+        <section id="skills">
+          <div className="subtitle">TECHNICAL ARCHITECTURE</div>
+          <div className="skills-grid">
+            {skillGroups.map(([title, skills]) => (
+              <div className="skill-card" key={title}>
+                <h3>{title}</h3>
+                <ul>{(skills as string[]).map((skill) => <li key={skill}>{skill}</li>)}</ul>
+              </div>
+            ))}
+          </div>
+        </section>
 
-    <section id="contact" className="booking">
-      <div><p className="eyebrow">YOUR THRONE AWAITS</p><h2 className="blood">TAKE<br/>THE<br/>SEAT.</h2></div>
-      <a className="primary large" href="mailto:hello@noirkingdom.com"><Calendar size={18}/> Request an appointment</a>
-    </section>
+        <section id="work">
+          <h2>THINGS I'VE BUILT.</h2>
+          {projects.map((project) => (
+            <article className="project-card" key={project.title}>
+              <div className="num">{project.num}</div>
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <div className="tags">{project.tags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}</div>
+            </article>
+          ))}
+        </section>
 
-    <footer><span>© 2026 NOIR KINGDOM</span><span>KOLKATA · INDIA</span></footer>
-  </main>;
+        <section>
+          <div className="subtitle">THE JOURNEY</div>
+          <div className="timeline">
+            <div className="timeline-item">
+              <div className="year">2026</div>
+              <div><h4>CONVERGENCE</h4><p>Scaling the intersection of Engineering, AI, and Web Development into full-stack product architecture.</p></div>
+            </div>
+            <div className="timeline-item">
+              <div className="year">2025–2026</div>
+              <div><h4>EXPERIMENTATION</h4><p>Deep technical learning, shipping projects, building the AI lab, and establishing a creative developer identity.</p></div>
+            </div>
+            <div className="timeline-item">
+              <div className="year">Earlier</div>
+              <div><h4>FOUNDATION</h4><p>Academic foundations, competitive exam preparation (JEE Main), and discovering the logic of code.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact">
+          <h2>LET'S BUILD SOMETHING INTERESTING.</h2>
+          <p className="contact-intro">Have an idea, project, collaboration or opportunity? My inbox is always open.</p>
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <input name="name" type="text" placeholder="NAME" required />
+            <input name="email" type="email" placeholder="EMAIL" required />
+            <textarea name="message" rows={4} placeholder="MESSAGE" required />
+            <button type="submit">SEND MESSAGE</button>
+          </form>
+        </section>
+      </main>
+
+      <footer>
+        <p>© 2026 ABHIJIT SINGHA. ENGINEERED WITH INTENT.</p>
+      </footer>
+    </div>
+  );
 }
