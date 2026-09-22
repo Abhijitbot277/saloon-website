@@ -21,7 +21,7 @@ nav{height:82px;display:flex;align-items:center;justify-content:space-between;pa
 .hero-art{height:680px;display:flex;align-items:center;justify-content:center;min-width:0}
 .throne-3d-shell{position:relative;width:min(100%,720px);height:680px;border:1px solid #ffffff12;background:radial-gradient(circle at 50% 40%,#180303 0,#080808 45%,#040404 100%);box-shadow:inset 0 0 80px #a7080815,0 35px 80px #000;overflow:hidden}
 .throne-3d-shell canvas{display:block;width:100%!important;height:100%!important;touch-action:none}
-.three-badge{position:absolute;left:20px;bottom:18px;display:flex;align-items:center;gap:8px;padding:8px 11px;background:#050505d9;border:1px solid #ffffff18;color:#847d77;font-size:8px;letter-spacing:.16em;backdrop-filter:blur(8px);pointer-events:none}
+.webgl-fallback{height:100%;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:radial-gradient(circle at 50% 35%,#260404 0,#090909 48%,#040404 100%);color:#b50909;font-family:'Bebas Neue',Impact,sans-serif;letter-spacing:.16em;font-size:18px;text-align:center}.webgl-fallback small{max-width:260px;color:#77716b;font:10px 'DM Sans',sans-serif;letter-spacing:.04em;line-height:1.6}.three-badge{position:absolute;left:20px;bottom:18px;display:flex;align-items:center;gap:8px;padding:8px 11px;background:#050505d9;border:1px solid #ffffff18;color:#847d77;font-size:8px;letter-spacing:.16em;backdrop-filter:blur(8px);pointer-events:none}
 .three-badge .dot{width:6px;height:6px;border-radius:50%;background:#a70808;box-shadow:0 0 12px #a70808;animation:pulse 1.8s ease-in-out infinite}
 @keyframes pulse{50%{opacity:.35;transform:scale(.7)}}
 .story,.services,.booking{max-width:1280px;margin:auto;padding:140px 6vw}
