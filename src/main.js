@@ -156,6 +156,28 @@ root.innerHTML = `
   </div>
 `;
 
+// Generate the moving star field entirely with CSS/DOM — no image assets.
+const starField = document.querySelector(".stars");
+const starCount = window.innerWidth < 700 ? 85 : 150;
+const starFragment = document.createDocumentFragment();
+
+for (let i = 0; i < starCount; i++) {
+  const star = document.createElement("span");
+  star.className = "star-particle";
+  star.style.left = `${Math.random() * 100}%`;
+  star.style.top = `${Math.random() * 100}%`;
+  star.style.setProperty("--size", `${(Math.random() * 2.2 + 0.5).toFixed(2)}px`);
+  star.style.setProperty("--duration", `${(Math.random() * 18 + 12).toFixed(1)}s`);
+  star.style.setProperty("--delay", `-${(Math.random() * 25).toFixed(1)}s`);
+  star.style.setProperty("--distance", `${(Math.random() * 180 + 70).toFixed(0)}px`);
+  star.style.setProperty("--drift-x", `${(Math.random() * 2 - 1) * 90}px`);
+  star.style.setProperty("--drift-y", `${(Math.random() * 2 - 1) * 90}px`);
+  star.style.setProperty("--twinkle", `${(Math.random() * 2.5 + 1.5).toFixed(1)}s`);
+  star.style.setProperty("--twinkle-delay", `-${(Math.random() * 4).toFixed(1)}s`);
+  starFragment.appendChild(star);
+}
+starField.appendChild(starFragment);
+
 const cursor = document.querySelector(".cursor");
 window.addEventListener("pointermove", (event) => {
   cursor.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0)`;
