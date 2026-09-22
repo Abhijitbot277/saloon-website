@@ -25,10 +25,10 @@ const projects = [
 ];
 
 const skills = [
-  ["DEVELOPMENT", "HTML / CSS", "JavaScript", "React", "TypeScript", "Python"],
-  ["AI & AUTOMATION", "AI FUNDAMENTALS", "AI WORKFLOWS", "AGENTS", "AUTOMATION"],
-  ["DESIGN", "UI / UX", "CANVA", "MOTION", "VISUAL SYSTEMS"],
-  ["TOOLS", "Git / GitHub", "VS Code", "Figma", "Vite"]
+  { title: "Development", icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 4l-4 16"/></svg>', items: ["React", "TypeScript", "JavaScript", "Python", "HTML/CSS"] },
+  { title: "AI & Automation", icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 8.5A3.5 3.5 0 1 1 12 5a3.5 3.5 0 1 1 3 3.5A3.5 3.5 0 1 1 15 15a3.5 3.5 0 1 1-6 0A3.5 3.5 0 1 1 9 8.5Z"/><path d="M12 5v14M5 12h14"/></svg>', items: ["AI Agents", "Prompt Eng", "Automation", "LLM Integration"] },
+  { title: "Design", icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="8" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="12" cy="17" r="2"/><path d="M8 8h8M7.2 9.6l3.5 5M16.8 9.6l-3.5 5"/></svg>', items: ["UI/UX", "Visual Design", "Motion Concepts", "Figma"] },
+  { title: "Tools", icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.7 6.3 3-3a5 5 0 0 0 0 7.1l-8.2 8.2a2.1 2.1 0 0 1-3-3l8.2-8.2a5 5 0 0 0 7.1 0l-3 3"/><path d="m5 19-2 2"/></svg>', items: ["VS Code", "GitHub", "Three.js", "GSAP"] }
 ];
 
 const root = document.querySelector("#root");
@@ -84,13 +84,15 @@ root.innerHTML = `
       </section>
 
       <section class="skills section" id="skills">
-        <div class="section-kicker">02 / SKILLS</div>
+        <div class="section-kicker technical-kicker">TECHNICAL ARCHITECTURE</div>
         <div class="skills-grid">
-          ${skills.map(([title, ...items], i) => `
+          ${skills.map(skill => `
             <article class="skill-card">
-              <span class="skill-index">0${i + 1}</span>
-              <h3>${title}</h3>
-              <div class="tags">${items.map(item => `<span>${item}</span>`).join("")}</div>
+              <div class="skill-heading">
+                <span class="skill-icon">${skill.icon}</span>
+                <h3>${skill.title}</h3>
+              </div>
+              <div class="tags">${skill.items.map(item => `<span>${item}</span>`).join("")}</div>
             </article>
           `).join("")}
         </div>
