@@ -181,6 +181,10 @@ for (let i = 0; i < starCount; i++) {
 starField.appendChild(starFragment);
 
 const cursor = document.querySelector(".cursor");
+const cursorOrbit = document.createElement("span");
+cursorOrbit.className = "cursor-orbit";
+cursor.appendChild(cursorOrbit);
+
 window.addEventListener("pointermove", (event) => {
   cursor.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0)`;
 });
