@@ -244,20 +244,50 @@ button { color: inherit; }
 .cursor {
   position: fixed;
   z-index: 100;
-  left: -20px;
-  top: -20px;
-  width: 10px;
-  height: 10px;
-  border: 1px solid rgba(255,255,255,.65);
+  left: -53px;
+  top: -53px;
+  width: 78px;
+  height: 78px;
+  border: 1px solid rgba(255,255,255,.38);
   border-radius: 50%;
   pointer-events: none;
-  transition: width .2s ease, height .2s ease, background .2s ease;
   will-change: transform;
+  transition: transform .08s linear;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,.16), rgba(255,255,255,.025) 38%, transparent 67%);
+  box-shadow: 0 0 26px rgba(255,255,255,.08), inset 0 0 18px rgba(255,255,255,.035);
+}
+.cursor::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 17px;
+  height: 17px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 14px rgba(255,255,255,.55);
+}
+.cursor-orbit {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  left: 100%;
+  top: 82%;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255,255,255,.7);
+  border-radius: 50%;
+  background: rgba(5,5,5,.25);
+  box-shadow: 0 0 7px rgba(255,255,255,.12);
+  animation: cursorOrbit 3.8s linear infinite;
+}
+@keyframes cursorOrbit {
+  from { transform: translate(-50%, -50%) rotate(0deg) translateX(0); }
+  to { transform: translate(-50%, -50%) rotate(360deg) translateX(0); }
 }
 .cursor.active {
-  width: 26px;
-  height: 26px;
-  background: rgba(255,255,255,.08);
+  width: 78px;
+  height: 78px;
 }
 
 .section {
