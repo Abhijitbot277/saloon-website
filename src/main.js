@@ -185,8 +185,8 @@ cursor.innerHTML = `
   <svg class="cursor-vector" viewBox="0 0 100 100" aria-hidden="true">
     <circle class="cursor-vector-ring" cx="50" cy="50" r="39"/>
     <circle class="cursor-vector-core" cx="50" cy="50" r="9"/>
-    <path class="cursor-vector-orbit" d="M50 8a42 42 0 0 1 36 20"/>
-    <circle class="cursor-vector-node" cx="86" cy="30" r="7"/>
+    <path class="cursor-vector-orbit" d="M50 8a42 42 0 0 1 36 70"/>
+    <circle class="cursor-vector-node" cx="86" cy="78" r="7"/>
   </svg>
 `;
 
