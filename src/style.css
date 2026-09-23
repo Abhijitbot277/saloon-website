@@ -434,6 +434,25 @@ html, body, a, button, input, textarea, [role="button"] {
 .project-arrow { font-size: 40px; color: #777; justify-self: end; transition: transform .3s ease, color .3s ease; }
 .project:hover .project-arrow { transform: translate(5px,-5px); color: #fff; }
 
+.experience-list { border-top: 1px solid var(--line); }
+.experience-item { min-height: 280px; }
+.experience-role {
+  margin-bottom: 12px;
+  color: #777;
+  font: 12px "JetBrains Mono", monospace;
+  letter-spacing: .15em;
+}
+.experience-item h3 { margin: 0 0 18px; font-size: clamp(28px, 4vw, 54px); letter-spacing: -.045em; }
+.experience-item p { margin: 0; max-width: 760px; color: #8b8b8b; line-height: 1.7; font-size: 16px; }
+.experience-tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 25px; }
+.experience-tags span {
+  padding: 8px 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 999px;
+  color: #9c9c9c;
+  font: 10px "JetBrains Mono", monospace;
+  letter-spacing: .08em;
+}
 .timeline { border-top: 1px solid var(--line); }
 .timeline-item {
   display: grid;
