@@ -37,6 +37,7 @@ root.innerHTML = `
   <div class="site">
     <div class="stars" aria-hidden="true"></div>
     <div class="grain" aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
     <div class="cursor" aria-hidden="true"></div>
 
     <header class="header">
@@ -157,6 +158,47 @@ root.innerHTML = `
     </footer>
   </div>
 `;
+
+// Scroll-driven cinematic motion.
+const scrollProgress = document.querySelector(".scroll-progress span");
+const heroCopy = document.querySelector(".hero-copy");
+const heroOrb = document.querySelector(".hero-orb");
+const hero = document.querySelector(".hero");
+let scrollTicking = false;
+
+function updateScrollAnimation() {
+  const y = window.scrollY;
+  const heroHeight = Math.max(hero.offsetHeight, 1);
+  const heroProgress = Math.min(Math.max(y / heroHeight, 0), 1);
+  const pageMax = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+  const pageProgress = Math.min(Math.max(y / pageMax, 0), 1);
+
+  scrollProgress.style.transform = "scaleX(" + pageProgress + ")";
+  heroCopy.style.transform = "translate3d(0, " + (heroProgress * -70) + "px, 0) scale(" + (1 - heroProgress * .035) + ")";
+  heroCopy.style.opacity = String(1 - heroProgress * .78);
+  heroOrb.style.transform = "translate(-50%, calc(-50% + " + (heroProgress * 95) + "px)) rotate(" + (heroProgress * 140) + "deg)";
+  hero.style.setProperty("--hero-glow", (heroProgress * 120) + "px");
+
+  document.querySelectorAll(".project, .skill-card, .timeline-item").forEach((el) => {
+    const rect = el.getBoundingClientRect();
+    const center = rect.top + rect.height / 2;
+    const distance = (center - window.innerHeight / 2) / window.innerHeight;
+    const shift = Math.max(-10, Math.min(10, distance * -7));
+    if (el.classList.contains("visible")) {
+      el.style.setProperty("--scroll-shift", shift + "px");
+    }
+  });
+  scrollTicking = false;
+}
+
+window.addEventListener("scroll", () => {
+  if (!scrollTicking) {
+    window.requestAnimationFrame(updateScrollAnimation);
+    scrollTicking = true;
+  }
+}, { passive: true });
+window.addEventListener("resize", updateScrollAnimation, { passive: true });
+updateScrollAnimation();
 
 // Generate the moving star field entirely with CSS/DOM — no image assets.
 const starField = document.querySelector(".stars");
