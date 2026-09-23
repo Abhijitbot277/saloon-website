@@ -94,6 +94,48 @@ html, body, a, button, input, textarea, [role="button"] {
   }
 }
 
+.scroll-progress {
+  position: fixed;
+  z-index: 60;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  pointer-events: none;
+  background: rgba(255,255,255,.06);
+}
+.scroll-progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(255,255,255,.45);
+  will-change: transform;
+}
+
+.hero {
+  isolation: isolate;
+  background: radial-gradient(circle at 70% 48%, rgba(255,255,255,.035), transparent var(--hero-glow, 0px));
+}
+.hero-copy { will-change: transform, opacity; }
+.hero-orb { will-change: transform; }
+
+.project, .skill-card, .timeline-item {
+  --scroll-shift: 0px;
+  transform: translate3d(0, var(--scroll-shift), 0);
+  will-change: transform;
+}
+.skill-card { transition: transform .35s ease, border-color .35s ease, background .35s ease; }
+.project { transition: padding .35s ease, background .35s ease, transform .35s ease; }
+.timeline-item { transition: transform .35s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-copy, .hero-orb, .project, .skill-card, .timeline-item { transform: none !important; }
+  .scroll-progress span { transform: none !important; }
+}
+
 .grain {
   position: fixed;
   inset: -50%;
