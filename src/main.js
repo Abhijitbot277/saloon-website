@@ -117,21 +117,36 @@ root.innerHTML = `
         </div>
       </section>
 
-      <section class="journey section">
-        <div class="section-kicker">04 / JOURNEY</div>
-        <div class="timeline">
-          <div class="timeline-item">
-            <span>2026 — NOW</span>
-            <div><h3>ENGINEERING × AI</h3><p>Building products, experimenting with AI and turning ideas into working experiences.</p></div>
-          </div>
-          <div class="timeline-item">
-            <span>2025 — 2026</span>
-            <div><h3>STARTED BUILDING</h3><p>Moved from learning concepts to shipping interfaces, experiments and real projects.</p></div>
-          </div>
-          <div class="timeline-item">
-            <span>EARLIER</span>
-            <div><h3>CURIOUS BY DEFAULT</h3><p>Technology, design and problem-solving became a habit rather than a subject.</p></div>
-          </div>
+      <section class="journey section" id="experience">
+        <div class="section-kicker">04 / WORK EXPERIENCE</div>
+        <div class="timeline experience-list">
+          <article class="timeline-item experience-item">
+            <span>2026 — PRESENT</span>
+            <div>
+              <div class="experience-role">STUDENT AMBASSADOR</div>
+              <h3>CORIZO EDTECH PVT. LTD.</h3>
+              <p>Representing Corizo as a student ambassador while building communication, outreach and professional exposure alongside engineering studies.</p>
+              <div class="experience-tags"><span>COMMUNICATION</span><span>OUTREACH</span><span>STUDENT COMMUNITY</span></div>
+            </div>
+          </article>
+          <article class="timeline-item experience-item">
+            <span>2026</span>
+            <div>
+              <div class="experience-role">SUMMER INTERNSHIP PROGRAM</div>
+              <h3>CORIZO EDTECH PVT. LTD.</h3>
+              <p>Completed industry-oriented training followed by real-world minor and major project work, gaining hands-on exposure through practical sessions, assignments and project development.</p>
+              <div class="experience-tags"><span>INDUSTRY TRAINING</span><span>PROJECT WORK</span><span>AI &amp; SOFTWARE</span></div>
+            </div>
+          </article>
+          <article class="timeline-item experience-item">
+            <span>2025 — PRESENT</span>
+            <div>
+              <div class="experience-role">ENGINEERING &amp; PROJECT DEVELOPMENT</div>
+              <h3>INDEPENDENT PROJECTS</h3>
+              <p>Building and experimenting with software, AI, automation and engineering projects including ApexStore, AIR SENTINAL and Green Revive, with a focus on turning concepts into working prototypes and digital experiences.</p>
+              <div class="experience-tags"><span>AI</span><span>WEB DEVELOPMENT</span><span>AUTOMATION</span><span>ENGINEERING</span></div>
+            </div>
+          </article>
         </div>
       </section>
 
